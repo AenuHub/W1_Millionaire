@@ -6,7 +6,7 @@ namespace W1_Millionaire
     {
         static void Main(string[] args)
         {
-            int answerCount = 0; // tracks correct user answers
+            int correctAnswerCount = 0; // tracks correct user answers
             char answer; // holds user answer value
 
             Console.WriteLine("**** Welcome to 'Who wants to be a Millionaire?' quiz ****");
@@ -20,7 +20,7 @@ namespace W1_Millionaire
             answer = char.Parse(Console.ReadLine().ToLower());
             if (answer == 'b')
             {
-                answerCount++;
+                correctAnswerCount++;
             }
 
             Console.WriteLine();
@@ -31,15 +31,19 @@ namespace W1_Millionaire
             answer = char.Parse(Console.ReadLine().ToLower());
             if (answer == 'a')
             {
-                answerCount++;
+                correctAnswerCount++;
             }
 
+            // checks correct answer count and continues as the conditions
+            // 0 correct answer out of 2 -> lose condition & stop
+            // 1 correct answer out of 2 -> continue to 3rd question
+            // 2 correct answer out of 2 -> win condition & stop
             Console.WriteLine();
-            if (answerCount < 1)
+            if (correctAnswerCount < 1)
             {
                 Console.WriteLine("Sorry, you lost. See you next time!");
             }
-            else if (answerCount == 2)
+            else if (correctAnswerCount == 2)
             {
                 Console.WriteLine("Congrats! You have won the big prize of 1 Million $!");
             }
@@ -52,11 +56,11 @@ namespace W1_Millionaire
                 answer = char.Parse(Console.ReadLine().ToLower());
                 if (answer == 'b')
                 {
-                    answerCount++;
+                    correctAnswerCount++;
                 }
 
                 Console.WriteLine();
-                if (answerCount >= 2)
+                if (correctAnswerCount >= 2)
                 {
                     Console.WriteLine("Congrats! You have won the big prize of 1 Million $!");
                 }
